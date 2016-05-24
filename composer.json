@@ -36,6 +36,12 @@
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
+     "require-dev": {
+        "psy/psysh": "@stable",
+        "cakephp/debug_kit": "~3.0",
+        "cakephp/bake": "~1.0",
+        "heroku/heroku-buildpack-php": "*"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true
 }
