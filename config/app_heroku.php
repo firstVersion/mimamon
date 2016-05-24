@@ -1,4 +1,5 @@
 <?php
+$db = parse_url(env('CLEARDB_DATABASE_URL'));
 return [
 	'debug' 	=> false,
 	'Security' 	=> [ 'salt' => env('SALT') ],
@@ -57,8 +58,6 @@ return [
             'levels' => ['warning', 'error', 'critical', 'alert', 'emergency'],
         ],
     ],
-    $db = parse_url(env('CLEARDB_DATABASE_URL'));
-	return [
     'Datasources' => [
         'default' => [
             'className' => 'Cake\Database\Connection',
