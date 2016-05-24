@@ -59,7 +59,6 @@ return [
     ],
     $db = parse_url(env('CLEARDB_DATABASE_URL'));
 	return [
-      :
     'Datasources' => [
         'default' => [
             'className' => 'Cake\Database\Connection',
@@ -77,5 +76,4 @@ return [
     ],
 
 
-    
 ];
