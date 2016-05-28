@@ -4,17 +4,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Company Entity.
+ * Mimamon Entity.
  *
  * @property int $id
- * @property string $name
- * @property string $email
- * @property string $password
- * @property \Cake\I18n\Time $updated_date
- * @property \Cake\I18n\Time $created_date
- * @property \App\Model\Entity\CompanyStatus[] $company_status
- * @property \App\Model\Entity\Request[] $requests
- * @property \App\Model\Entity\UserStatus[] $user_status
+ * @property int $user_id
+ * @property \App\Model\Entity\User $user
+ * @property \Cake\I18n\Time $start_time
+ * @property \Cake\I18n\Time $end_time
  */
 class Mimamon extends Entity
 {
