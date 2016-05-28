@@ -27,7 +27,6 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
-    $this->autoRender = false;
     /**
      * Displays a view
      *
@@ -68,6 +67,7 @@ class PagesController extends AppController
 
     public function start()
     {
+        $this->autoRender = false;
         if($this->request->data('post')) {
             $this->Mimamon->set([
                 "user_id"=>$this->request->data("userid"),
@@ -83,6 +83,7 @@ class PagesController extends AppController
 
     public function end()
     {
+        $this->autoRender = false;
         if($this->request->data('post')) {
             $data = $this->Mimamon->find('all', array(
                 'conditions' => array('userid' => $this->request->data('userid')),
