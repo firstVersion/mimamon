@@ -68,17 +68,21 @@ class PagesController extends AppController
     public function start()
     {
         $this->autoRender = false;
-        if($this->request->data('post')) {
+        $this->response->type('json');
+
+        if($this->request->is('post')) {
             $this->Mimamon->set([
                 "user_id"=>$this->request->data("userid"),
                 "start_time"=>$this->request->data("start")
             ]);
-            if($this->Mimamon->save()) {
-                $this->response->type('json');
+            if($this->Mimamon->save()) 
                 $this->response->body(json_encode(["status"=>"Success"]));
-                $this->response->send();
-            }
-        }            
+            else
+                $this->response->body(json_encode(["status"=>"Failed"]));
+        }
+        else
+            $this->response->body(json_encode(["status"=>"Please use post method"]));
+        $this->response->send();     
     }
 
     public function end()
