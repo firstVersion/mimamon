@@ -67,8 +67,8 @@ class PagesController extends AppController
     {
         if($this->request->data('post')) {
             $this->Mimamon->set([
-                "userid"=>$this->request->data("userid"),
-                "start"=>$this->request->data("start")
+                "user_id"=>$this->request->data("userid"),
+                "start_time"=>$this->request->data("start")
             ]);
             if($this->Mimamon->save()) {
                 $this->response->type('json');
