@@ -165,7 +165,7 @@ class LogsController extends AppController
         exit();
     }
 
-    public function history
+    public function history()
     {
 
     }
