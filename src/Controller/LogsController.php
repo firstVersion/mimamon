@@ -150,4 +150,20 @@ class LogsController extends AppController
         $this->response->send();
         exit();
     }
+
+    public function real()
+    {
+        $this->response->header('Access-Control-Allow-Origin', '*');
+        $user = $this->Logs->find('all')
+            ->where(['Logs.end_time =' => '0'])
+        //$user->end_time = time($this->request->data('end_time'));
+
+        $this->response->type('json');
+        if ($this->request->is('post'))
+            $this->response->body(json_encode($this->request->data('user')));
+        else
+            $this->response->body(json_encode(["status"=>"not post"]));
+        $this->response->send();
+        exit();
+    }
 }
