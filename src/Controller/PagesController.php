@@ -35,8 +35,6 @@ class PagesController extends AppController
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
 
-    public $uses = array('Mimamon');
-
     public function display()
     {
         $path = func_get_args();
@@ -67,6 +65,8 @@ class PagesController extends AppController
 
     public function start()
     {
+        
+        $this->loadModel('Mimamon');
         $this->autoRender = false;
         $this->response->type('json');
 
@@ -91,6 +91,7 @@ class PagesController extends AppController
 
     public function end()
     {
+        $this->loadModel('Mimamon');
         $this->autoRender = false;
         if($this->request->data('post')) {
             $data = $this->Mimamon->find('all', array(
