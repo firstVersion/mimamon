@@ -71,7 +71,7 @@ class PagesController extends AppController
         $this->response->type('json');
 
         if($this->request->is('post')) {
-            $data = $this->Mimamons->newEntity(array(
+            $data = $this->Mimamon->newEntity(array(
                 "user_id" => $this->request->data("userid"),
                 "start_time" => $this->request->data("start")
             ));
@@ -79,7 +79,7 @@ class PagesController extends AppController
             //     "user_id" => $this->request->data("userid"),
             //     "start_time" => $this->request->data("start")
             // ));
-            if($this->Mimamons->save($data)) 
+            if($this->Mimamon->save($data)) 
                 $this->response->body(json_encode(["status"=>"Success"]));
             else
                 $this->response->body(json_encode(["status"=>"Failed"]));
