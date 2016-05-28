@@ -166,9 +166,20 @@ class LogsController extends AppController
         exit();
     }
 
-    public function week_history()
+    public function week_history($userid)
     {
-
+        $lastweek = time() - (7 * 24 * 60 * 60);
+        $this->response->header('Access-Control-Allow-Origin', '*');
+        $time = $this->Logs->find('all')
+            ->where(['Logs.user =' => $userid, 'Logs.end_time >=' => $lastweek])
+            ->select(['Logs.start_time', 'Logs.end_time']);
+        $this->response->type('json');
+        if ($time)
+            $this->response->body(json_encode($time));
+        else
+            $this->response->body(json_encode(["status"=>"Failed"]));
+        $this->response->send();
+        exit();
     }
 
     public function day_history()
