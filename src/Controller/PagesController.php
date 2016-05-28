@@ -62,4 +62,20 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    public function start()
+    {
+        //if($this->request->data('post')) {
+            //$this->Mimamon->save($this->request->data)
+            $this->Mimamon->save('11111');
+        //}            
+    }
+
+    public function end()
+    {
+        if($this->request->data('post')) {
+            $this->Mimamon->save($this->request->data);
+        }  
+    }
+
 }

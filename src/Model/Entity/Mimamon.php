@@ -16,7 +16,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Request[] $requests
  * @property \App\Model\Entity\UserStatus[] $user_status
  */
-class Company extends Entity
+class Mimamon extends Entity
 {
 
     /**
@@ -31,16 +31,5 @@ class Company extends Entity
     protected $_accessible = [
         '*' => true,
         'id' => false,
-        'updated_date' => false,
-        'created_date' => false
-    ];
-
-    /**
-     * Fields that are excluded from JSON an array versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
     ];
 }
