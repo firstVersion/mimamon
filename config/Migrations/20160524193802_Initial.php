@@ -6,7 +6,7 @@ class Initial extends AbstractMigration
     public function up()
     {
 
-        $this->table('mimamon')
+        $this->table('Mimamon')
             ->addColumn('user_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
