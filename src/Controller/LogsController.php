@@ -166,7 +166,12 @@ class LogsController extends AppController
         exit();
     }
 
-    public function history()
+    public function week_history()
+    {
+
+    }
+
+    public function day_history()
     {
 
     }
