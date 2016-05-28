@@ -71,12 +71,12 @@ class PagesController extends AppController
         $this->response->type('json');
 
         if($this->request->is('post')) {
-            $data = $this->Mimamon->newEntity();
-            $this->Mimamon->patchEntity($data, array(
+            $data = $this->Mimamons->newEntity();
+            $post = $this->Mimamons->patchEntity($data, array(
                 "user_id" => $this->request->data("userid"),
                 "start_time" => $this->request->data("start")
             ));
-            if($this->Mimamon->save()) 
+            if($this->Mimamons->save($post)) 
                 $this->response->body(json_encode(["status"=>"Success"]));
             else
                 $this->response->body(json_encode(["status"=>"Failed"]));
