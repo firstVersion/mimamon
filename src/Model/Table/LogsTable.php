@@ -1,17 +1,17 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\CompanyTag;
+use App\Model\Entity\Log;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * CompanyTags Model
+ * Logs Model
  *
  */
-class CompanyTagsTable extends Table
+class LogsTable extends Table
 {
 
     /**
@@ -24,8 +24,8 @@ class CompanyTagsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('company_tags');
-        $this->displayField('name');
+        $this->table('logs');
+        $this->displayField('id');
         $this->primaryKey('id');
     }
 
@@ -42,8 +42,19 @@ class CompanyTagsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->requirePresence('name', 'create')
-            ->notEmpty('name');
+            ->integer('user')
+            ->requirePresence('user', 'create')
+            ->notEmpty('user');
+
+        $validator
+            ->dateTime('start_time')
+            ->requirePresence('start_time', 'create')
+            ->notEmpty('start_time');
+
+        $validator
+            ->dateTime('end_time')
+            ->requirePresence('end_time', 'create')
+            ->notEmpty('end_time');
 
         return $validator;
     }

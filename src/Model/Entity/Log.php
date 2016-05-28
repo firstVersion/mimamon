@@ -4,12 +4,14 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * UserTag Entity.
+ * Log Entity.
  *
  * @property int $id
- * @property string $name
+ * @property int $user
+ * @property \Cake\I18n\Time $start_time
+ * @property \Cake\I18n\Time $end_time
  */
-class UserTag extends Entity
+class Log extends Entity
 {
 
     /**

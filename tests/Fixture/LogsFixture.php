@@ -4,10 +4,10 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * MimamonsFixture
+ * LogsFixture
  *
  */
-class MimamonsFixture extends TestFixture
+class LogsFixture extends TestFixture
 {
 
     /**
@@ -18,7 +18,7 @@ class MimamonsFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'user_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'user' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'start_time' => ['type' => 'timestamp', 'length' => null, 'null' => false, 'default' => 'CURRENT_TIMESTAMP', 'comment' => '', 'precision' => null],
         'end_time' => ['type' => 'timestamp', 'length' => null, 'null' => false, 'default' => '0000-00-00 00:00:00', 'comment' => '', 'precision' => null],
         '_constraints' => [
@@ -39,9 +39,9 @@ class MimamonsFixture extends TestFixture
     public $records = [
         [
             'id' => 1,
-            'user_id' => 1,
-            'start_time' => 1464447849,
-            'end_time' => 1464447849
+            'user' => 1,
+            'start_time' => 1464450268,
+            'end_time' => 1464450268
         ],
     ];
 }

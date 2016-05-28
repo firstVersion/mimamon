@@ -6,30 +6,27 @@ class Initial extends AbstractMigration
     public function up()
     {
 
-        $this->table('Mimamon')
-            ->addColumn('user_id', 'integer', [
+        $this->table('logs')
+            ->addColumn('user', 'integer', [
                 'default' => null,
                 'limit' => 11,
                 'null' => false,
             ])
             ->addColumn('start_time', 'timestamp', [
-                'default' => null,
+                'default' => 'CURRENT_TIMESTAMP',
                 'limit' => null,
                 'null' => false,
             ])
             ->addColumn('end_time', 'timestamp', [
-                'default' => null,
+                'default' => '0000-00-00 00:00:00',
                 'limit' => null,
                 'null' => false,
             ])
             ->create();
-
     }
 
     public function down()
     {
-        $this->dropTable('user_id');
-        $this->dropTable('start_time');
-        $this->dropTable('end_time');
+        $this->dropTable('logs');
     }
 }
