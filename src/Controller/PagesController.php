@@ -27,7 +27,7 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
-
+    $this->autoRender = false;
     /**
      * Displays a view
      *
@@ -65,16 +65,29 @@ class PagesController extends AppController
 
     public function start()
     {
-        //if($this->request->data('post')) {
-            //$this->Mimamon->save($this->request->data)
-            $this->Mimamon->save('11111');
-        //}            
+        if($this->request->data('post')) {
+            $this->Mimamon->set([
+                "userid"=>$this->request->data("userid"),
+                "start"=>$this->request->data("start")
+            ]);
+            if($this->Mimamon->save()) {
+                $this->response->type('json');
+                $this->response->body(json_encode(["status"=>"Success"]));
+                $this->response->send();
+            }
+        }            
     }
 
     public function end()
     {
         if($this->request->data('post')) {
-            $this->Mimamon->save($this->request->data);
+            $data = $this->Mimamon->find('all', array(
+                'conditions' => array('userid' => $this->request->data('userid')),
+                'order' => array('Mimamon.created DESC')));
+            // そしてこの既存データのEntityと渡ってきたデータをマージします
+            $this->Mimamon->patchEntity($data, $this->request->data('end'));
+            // これで更新用のEntityができたので、あとはsave
+            $this->Mimamon->save($data);
         }  
     }
 
