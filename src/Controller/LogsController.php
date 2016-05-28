@@ -157,10 +157,10 @@ class LogsController extends AppController
         $user = $this->Logs->find('all')
             ->where(['Logs.end_time =' => '0']);
         $this->response->type('json');
-        if ($this->request->is('post'))
+        if ($this->request->data('user'))
             $this->response->body(json_encode($this->request->data('user')));
         else
-            $this->response->body(json_encode(["status"=>"not post"]));
+            $this->response->body(json_encode(["status"=>"Failed"]));
         $this->response->send();
         exit();
     }
