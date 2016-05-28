@@ -155,8 +155,8 @@ class LogsController extends AppController
     {
         $this->response->header('Access-Control-Allow-Origin', '*');
         $user = $this->Logs->find('all')
-            ->where(['Logs.end_time =' => '0000-00-00 00:00:00']);
-        var_dump($user);
+            ->where(['Logs.end_time =' => '0000-00-00 00:00:00'])
+            ->select(['user']);
         $this->response->type('json');
         if ($user)
             $this->response->body(json_encode($user));
