@@ -166,7 +166,7 @@ class LogsController extends AppController
         exit();
     }
 
-    public function week_history($userid)
+    public function weekHistory($userid)
     {
         $lastweek = time() - (7 * 24 * 60 * 60);
         $this->response->header('Access-Control-Allow-Origin', '*');
